@@ -72,6 +72,11 @@ p {
   box-shadow: 0 4px 20px rgba(0, 0, 0, 0.3);
 }
 
+main {
+  padding-top: 90px; 
+  min-height: calc(100vh - 70px);
+} 
+
 .topbar-inner {
   display: flex;
   justify-content: space-between;

@@ -313,7 +313,7 @@ main {
   align-items: center;
   justify-content: center; 
   max-width: 1000px;
-  margin: 60px auto; 
+  margin: 80px auto; /* УВЕЛИЧИЛ ОТСТУП СВЕРХУ */
   padding: 0 20px;
   flex-wrap: wrap;
   gap: 40px; 
@@ -384,65 +384,9 @@ main {
     0 12px 40px rgba(0, 0, 0, 0.5);
 }
 
-/* Buttons */
-.btn {
-  display: inline-flex;
-  align-items: center;
-  gap: 0.75rem;
-  padding: 1rem 2rem;
-  border-radius: 12px;
-  text-decoration: none;
-  font-weight: 600;
-  font-size: 1.1rem;
-  transition: all 0.3s ease;
-  border: 2px solid transparent;
-  cursor: pointer;
-  letter-spacing: 0.02em;
-}
-
-.btn-primary {
-  background: var(--accent);
-  color: #082f49;
-  box-shadow: 
-    0 4px 14px var(--accent-glow),
-    0 2px 8px rgba(0, 0, 0, 0.2);
-}
-
-.btn-primary:hover {
-  transform: translateY(-3px);
-  box-shadow: 
-    0 8px 25px var(--accent-glow),
-    0 4px 12px rgba(0, 0, 0, 0.3);
-  background: #0ea5e9;
-}
-
-.btn-outline {
-  border: 2px solid var(--accent);
-  color: var(--accent);
-  background: transparent;
-  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
-}
-
-.btn-outline:hover {
-  background: var(--accent);
-  color: #082f49;
-  transform: translateY(-3px);
-  box-shadow: 0 6px 20px var(--accent-glow);
-}
-
-.btn-sm {
-  padding: 0.75rem 1.5rem;
-  font-size: 1rem;
-}
-
-.btn-full {
-  width: 100%;
-  justify-content: center;
-}
-
 /* Projects Section */
 .featured {
-  padding: 6rem 0;
+  padding: 8rem 0; /* УВЕЛИЧИЛ ОТСТУП СВЕРХУ И СНИЗУ */
 }
 
 .featured h2 {
@@ -875,7 +819,7 @@ main {
   box-shadow: 0 8px 25px var(--accent-glow);
 }
 
-/* Light Theme */
+/* Light Theme - ИСПРАВЛЕННЫЕ ЦВЕТА */
 [data-theme="light"] {
   --bg: #ffffff;
   --card: #f8fafc;
@@ -893,9 +837,36 @@ main {
 }
 
 [data-theme="light"] .topbar {
-  background: rgba(248, 250, 252, 0.9);
+  background: rgba(248, 250, 252, 0.95); /* Более непрозрачный */
   border-bottom: 1px solid var(--border);
   box-shadow: 0 4px 20px rgba(0, 0, 0, 0.1);
+}
+
+/* ИСПРАВЛЕНИЕ ЦВЕТОВ ГАМБУРГЕРА В СВЕТЛОЙ ТЕМЕ */
+[data-theme="light"] .menu-toggle span {
+  background-color: #1e293b; /* Темный цвет для контраста */
+}
+
+[data-theme="light"] .mobile-nav {
+  background: rgba(248, 250, 252, 0.98); /* Светлый фон */
+  backdrop-filter: blur(20px);
+}
+
+[data-theme="light"] .mobile-nav a {
+  color: #1e293b; /* Темный текст */
+}
+
+[data-theme="light"] .mobile-nav a:hover {
+  color: var(--accent);
+}
+
+[data-theme="light"] .mobile-theme-toggle {
+  background: rgba(3, 105, 161, 0.1); /* Акцентный фон */
+  color: #1e293b;
+}
+
+[data-theme="light"] .mobile-theme-toggle:hover {
+  background: rgba(3, 105, 161, 0.15);
 }
 
 [data-theme="light"] .card,
@@ -958,6 +929,7 @@ main {
     padding: 2rem 0;
     gap: 2.5rem;
     min-height: auto;
+    margin: 60px auto; /* Меньший отступ на мобильных */
   }
   
   .hero-title {
@@ -1030,6 +1002,10 @@ main {
   
   .page-header h1 {
     font-size: 2.5rem;
+  }
+  
+  .featured {
+    padding: 6rem 0; /* Меньший отступ на мобильных */
   }
   
   .featured h2 {

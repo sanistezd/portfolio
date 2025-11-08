@@ -33,6 +33,63 @@ document.addEventListener('DOMContentLoaded', function() {
     });
   }
 
+  // Theme Toggle functionality
+  function setupThemeToggle() {
+    const themeToggle = document.querySelector('.theme-toggle');
+    const mobileThemeToggle = document.querySelector('.mobile-theme-toggle');
+    
+    // Get current theme or default to dark
+    const currentTheme = localStorage.getItem('theme') || 'dark';
+    document.documentElement.setAttribute('data-theme', currentTheme);
+
+    // Desktop theme toggle
+    if (themeToggle) {
+      themeToggle.addEventListener('click', function() {
+        const currentTheme = document.documentElement.getAttribute('data-theme');
+        const newTheme = currentTheme === 'dark' ? 'light' : 'dark';
+        
+        document.documentElement.setAttribute('data-theme', newTheme);
+        localStorage.setItem('theme', newTheme);
+        
+        // Animation for theme toggle
+        this.style.transform = 'scale(0.8)';
+        setTimeout(() => {
+          this.style.transform = 'scale(1)';
+        }, 150);
+      });
+    }
+
+    // Mobile theme toggle
+    if (mobileThemeToggle) {
+      mobileThemeToggle.addEventListener('click', function() {
+        const currentTheme = document.documentElement.getAttribute('data-theme');
+        const newTheme = currentTheme === 'dark' ? 'light' : 'dark';
+        
+        document.documentElement.setAttribute('data-theme', newTheme);
+        localStorage.setItem('theme', newTheme);
+        
+        // Close mobile menu after theme change
+        if (menuToggle && mobileNav) {
+          menuToggle.classList.remove('active');
+          mobileNav.classList.remove('active');
+          document.body.style.overflow = '';
+        }
+      });
+    }
+
+    // System preference for theme
+    const prefersDark = window.matchMedia('(prefers-color-scheme: dark)');
+    
+    prefersDark.addEventListener('change', (e) => {
+      if (!localStorage.getItem('theme')) {
+        document.documentElement.setAttribute('data-theme', e.matches ? 'dark' : 'light');
+      }
+    });
+  }
+
+  // Initialize theme toggle
+  setupThemeToggle();
+
   // Scroll to top button
   const scrollBtn = document.createElement('button');
   scrollBtn.innerHTML = '↑';
@@ -119,44 +176,6 @@ document.addEventListener('DOMContentLoaded', function() {
     });
   });
 
-  // Theme Toggle
-  const themeToggle = document.createElement('button');
-  themeToggle.className = 'theme-toggle';
-  themeToggle.innerHTML = '🌓';
-  themeToggle.setAttribute('aria-label', 'Toggle theme');
-  
-  const nav = document.querySelector('.nav');
-  if (nav) {
-    nav.appendChild(themeToggle);
-  }
-
-  // Theme functionality
-  const currentTheme = localStorage.getItem('theme') || 'dark';
-  document.documentElement.setAttribute('data-theme', currentTheme);
-
-  themeToggle.addEventListener('click', function() {
-    const currentTheme = document.documentElement.getAttribute('data-theme');
-    const newTheme = currentTheme === 'dark' ? 'light' : 'dark';
-    
-    document.documentElement.setAttribute('data-theme', newTheme);
-    localStorage.setItem('theme', newTheme);
-    
-    // Animation for theme toggle
-    themeToggle.style.transform = 'scale(0.8)';
-    setTimeout(() => {
-      themeToggle.style.transform = 'scale(1)';
-    }, 150);
-  });
-
-  // System preference for theme
-  const prefersDark = window.matchMedia('(prefers-color-scheme: dark)');
-  
-  prefersDark.addEventListener('change', (e) => {
-    if (!localStorage.getItem('theme')) {
-      document.documentElement.setAttribute('data-theme', e.matches ? 'dark' : 'light');
-    }
-  });
-
   // Close mobile menu on escape key
   document.addEventListener('keydown', function(e) {
     if (e.key === 'Escape' && mobileNav && mobileNav.classList.contains('active')) {
@@ -235,7 +254,6 @@ window.addEventListener('load', function() {
   forms.forEach(form => {
     form.addEventListener('submit', function() {
       console.log('Form submitted:', this.className);
-      // Here you can add analytics tracking
     });
   });
 });

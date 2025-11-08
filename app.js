@@ -31,7 +31,7 @@ const portfolioData = {
 
   socialLinks: {
     github: "https://github.com/sanistezd",
-    linkedin: "https://linkedin.com/in/your-profile"
+    linkedin: "https://www.linkedin.com/in/oleksandr-dzetsina-57901b392/"
   },
 
   projects: [

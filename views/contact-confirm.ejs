@@ -8,36 +8,72 @@
 </head>
 <body>
   <header class="topbar">
-    <div class="container topbar-inner">
-      <a class="logo" href="/"><strong><%= name %></strong></a>
+  <div class="container topbar-inner">
+    <a class="logo" href="/"><strong><%= name %></strong></a>
+    
+    <!-- Desktop Navigation -->
+    <nav class="nav">
+      <a href="/">Home</a>
+      <a href="/projects">Projects</a>
+      <a href="/skills">Skills</a>
+      <a href="/about">About</a>
+      <a href="/contact">Contact</a>
       
-      <!-- Desktop Navigation -->
-      <nav class="nav">
-        <a href="/">Home</a>
-        <a href="/projects">Projects</a>
-        <a href="/skills">Skills</a>
-        <a href="/about">About</a>
-        <a href="/contact">Contact</a>
-      </nav>
-
-      <!-- Hamburger Menu -->
-      <button class="menu-toggle" aria-label="Toggle menu">
-        <span></span>
-        <span></span>
-        <span></span>
+      <!-- Desktop Theme Toggle -->
+      <button class="theme-toggle" aria-label="Toggle theme">
+        <svg class="sun-icon" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+          <circle cx="12" cy="12" r="5"></circle>
+          <line x1="12" y1="1" x2="12" y2="3"></line>
+          <line x1="12" y1="21" x2="12" y2="23"></line>
+          <line x1="4.22" y1="4.22" x2="5.64" y2="5.64"></line>
+          <line x1="18.36" y1="18.36" x2="19.78" y2="19.78"></line>
+          <line x1="1" y1="12" x2="3" y2="12"></line>
+          <line x1="21" y1="12" x2="23" y2="12"></line>
+          <line x1="4.22" y1="19.78" x2="5.64" y2="18.36"></line>
+          <line x1="18.36" y1="5.64" x2="19.78" y2="4.22"></line>
+        </svg>
+        <svg class="moon-icon" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+          <path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"></path>
+        </svg>
       </button>
+    </nav>
 
-      <!-- Mobile Navigation -->
-      <nav class="mobile-nav">
-        <a href="/">Home</a>
-        <a href="/projects">Projects</a>
-        <a href="/skills">Skills</a>
-        <a href="/about">About</a>
-        <a href="/contact">Contact</a>
-      </nav>
-    </div>
-  </header>
+    <!-- Hamburger Menu -->
+    <button class="menu-toggle" aria-label="Toggle menu">
+      <span></span>
+      <span></span>
+      <span></span>
+    </button>
 
+    <!-- Mobile Navigation -->
+    <nav class="mobile-nav">
+      <a href="/">Home</a>
+      <a href="/projects">Projects</a>
+      <a href="/skills">Skills</a>
+      <a href="/about">About</a>
+      <a href="/contact">Contact</a>
+      
+      <!-- Mobile Theme Toggle -->
+      <button class="mobile-theme-toggle" aria-label="Toggle theme">
+        <svg class="sun-icon" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+          <circle cx="12" cy="12" r="5"></circle>
+          <line x1="12" y1="1" x2="12" y2="3"></line>
+          <line x1="12" y1="21" x2="12" y2="23"></line>
+          <line x1="4.22" y1="4.22" x2="5.64" y2="5.64"></line>
+          <line x1="18.36" y1="18.36" x2="19.78" y2="19.78"></line>
+          <line x1="1" y1="12" x2="3" y2="12"></line>
+          <line x1="21" y1="12" x2="23" y2="12"></line>
+          <line x1="4.22" y1="19.78" x2="5.64" y2="18.36"></line>
+          <line x1="18.36" y1="5.64" x2="19.78" y2="4.22"></line>
+        </svg>
+        <svg class="moon-icon" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+          <path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"></path>
+        </svg>
+        <span>Toggle Theme</span>
+      </button>
+    </nav>
+  </div>
+</header>
   <main class="contact-confirm-page">
     <div class="container">
       <div style="text-align: center; padding: 4rem 0;">

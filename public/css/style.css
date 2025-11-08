@@ -94,6 +94,7 @@ p {
 .nav {
   display: flex;
   gap: 2.5rem;
+  align-items: center;
 }
 
 .nav a {
@@ -123,6 +124,56 @@ p {
 
 .nav a:hover::after {
   width: 100%;
+}
+
+/* Theme Toggle - Professional Icons */
+.theme-toggle {
+  background: none;
+  border: none;
+  color: var(--muted);
+  cursor: pointer;
+  padding: 0.75rem;
+  border-radius: 12px;
+  transition: all 0.3s ease;
+  font-size: 1.2rem;
+  backdrop-filter: blur(10px);
+  background: rgba(255, 255, 255, 0.05);
+  width: 44px;
+  height: 44px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-left: 1rem;
+}
+
+.theme-toggle:hover {
+  color: var(--accent);
+  background: rgba(255, 255, 255, 0.1);
+  transform: scale(1.1);
+}
+
+/* Sun/Moon Icons */
+.theme-toggle .sun-icon,
+.theme-toggle .moon-icon {
+  transition: all 0.3s ease;
+  width: 20px;
+  height: 20px;
+}
+
+.theme-toggle .sun-icon {
+  display: none;
+}
+
+.theme-toggle .moon-icon {
+  display: block;
+}
+
+[data-theme="light"] .theme-toggle .sun-icon {
+  display: block;
+}
+
+[data-theme="light"] .theme-toggle .moon-icon {
+  display: none;
 }
 
 /* Mobile Navigation */
@@ -198,6 +249,50 @@ p {
 .mobile-nav a:hover {
   color: var(--accent);
   transform: translateX(10px);
+}
+
+/* Mobile Theme Toggle in Menu */
+.mobile-theme-toggle {
+  margin-top: 2rem;
+  padding: 1rem 2rem;
+  background: rgba(255, 255, 255, 0.1);
+  border: none;
+  border-radius: 12px;
+  color: var(--text);
+  font-size: 1.1rem;
+  font-weight: 600;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+  transition: all 0.3s ease;
+}
+
+.mobile-theme-toggle:hover {
+  background: rgba(255, 255, 255, 0.15);
+  transform: translateX(10px);
+}
+
+.mobile-theme-toggle .sun-icon,
+.mobile-theme-toggle .moon-icon {
+  width: 20px;
+  height: 20px;
+}
+
+.mobile-theme-toggle .sun-icon {
+  display: none;
+}
+
+.mobile-theme-toggle .moon-icon {
+  display: block;
+}
+
+[data-theme="light"] .mobile-theme-toggle .sun-icon {
+  display: block;
+}
+
+[data-theme="light"] .mobile-theme-toggle .moon-icon {
+  display: none;
 }
 
 /* Main */
@@ -778,26 +873,6 @@ main {
 .scroll-to-top:hover {
   transform: translateY(-3px);
   box-shadow: 0 8px 25px var(--accent-glow);
-}
-
-/* Theme Toggle */
-.theme-toggle {
-  background: none;
-  border: none;
-  color: var(--muted);
-  cursor: pointer;
-  padding: 0.75rem;
-  border-radius: 12px;
-  transition: all 0.3s ease;
-  font-size: 1.2rem;
-  backdrop-filter: blur(10px);
-  background: rgba(255, 255, 255, 0.05);
-}
-
-.theme-toggle:hover {
-  color: var(--accent);
-  background: rgba(255, 255, 255, 0.1);
-  transform: scale(1.1);
 }
 
 /* Light Theme */
